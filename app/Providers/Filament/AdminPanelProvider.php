@@ -27,9 +27,18 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('hengker')
             ->login()
+            
+            // --- BAGIAN UI CUSTOMIZATION ---
+            ->brandName('RVPS Admin')
+            // Mengubah warna panel menjadi Monokromatik agar selaras dengan tema "SaaS / Bento"
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => Color::Zinc, // Zinc adalah spektrum warna hitam/abu-abu mewah di Tailwind
+                'gray' => Color::Slate,
             ])
+            // Memaksa seluruh UI Filament menggunakan font Inter
+            ->font('Inter')
+            // -------------------------------
+            
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
             ->pages([
